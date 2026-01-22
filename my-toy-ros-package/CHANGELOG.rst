@@ -1,3 +1,9 @@
+1.0.1 (2026-01-22)
+------------------
+* Merge pull request #9 from esteve/add-minor-feature-5
+* Contributors: Esteve Fernandez
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Changelog for package my-toy-ros-package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
