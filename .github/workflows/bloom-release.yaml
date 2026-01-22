@@ -1,0 +1,57 @@
+name: Bloom Release
+
+on:
+  push:
+    branches:
+      - main
+      - rolling
+      - jazzy
+      - humble
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+      - rolling
+      - jazzy
+      - humble
+
+concurrency:
+  group: bloom-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # Create/update release PR on push to main
+  prepare-release:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' &&
+      !startsWith(github.ref, 'refs/heads/release-please-') &&
+      !contains(github.event.head_commit.message, '[skip release]')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BLOOM_GITHUB_TOKEN }}
+
+      - uses: esteve/bloom-release-action@v1
+        with:
+          mode: prepare
+          token: ${{ secrets.BLOOM_GITHUB_TOKEN }}
+
+  # Execute bloom-release when release PR is merged
+  execute-release:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'release-please-')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BLOOM_GITHUB_TOKEN }}
+
+      - uses: esteve/bloom-release-action@v1
+        with:
+          mode: release
+          token: ${{ secrets.BLOOM_GITHUB_TOKEN }}
