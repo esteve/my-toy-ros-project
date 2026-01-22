@@ -1,0 +1,16 @@
+# Release repository URL (optional, for ros2-gbp)
+release_repository: https://github.com/ros2-gbp/my_ros_package-release.git
+
+# Track configuration: maps branches to ROS distributions
+tracks:
+  rolling:
+    branch: main
+    ros_distro: rolling
+
+  jazzy:
+    branch: jazzy
+    ros_distro: jazzy
+
+  humble:
+    branch: humble
+    ros_distro: humble
