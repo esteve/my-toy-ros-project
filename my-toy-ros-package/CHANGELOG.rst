@@ -1,3 +1,12 @@
+1.1.0 (2026-01-23)
+------------------
+* feat: change value in multiply a fifth time
+* feat: change value in multiply a fourth time
+* feat: change value in multiply a third time
+* ci: fix git checkout, use full history
+* Contributors: Esteve Fernandez
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Changelog for package my-toy-ros-package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
