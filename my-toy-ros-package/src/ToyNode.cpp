@@ -13,6 +13,6 @@ int multiply(int x, int y)
 int main([[maybe_unused]] int argc, [[maybe_unused]] char ** argv)
 {
   int result_sum = sum(41, 1);
-  int result_multiply = multiply(result_sum, 7);
+  int result_multiply = multiply(result_sum, 8);
   printf("hello world my-toy-ros-package package: %d\n", result_multiply);
 }
